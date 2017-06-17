@@ -9,19 +9,21 @@ const defaultState = {};
 
 export default (state = defaultState, action) => {
     // popperReducer.jsx
-  const { type, payload: { id, data } } = action;
-  const popperState = state[id];
+  const { type } = action;
   switch(type) {
     case OPEN_POPPER : {
-      return { ...state, [id]:{ ...popperState, isOpen:true } };
+      const { id } = action.payload;
+      return { ...state, [id]:{ ...state[id], isOpen:true } };
     }
 
     case ASSIGN_POPPER : {
-      return { ...state, [id]:{ ...popperState, data } };
+      const { id, data } = action.payload;
+      return { ...state, [id]:{ ...state[id], data } };
     }
 
     case CLOSE_POPPER : {
-      return { ...state, [id]:{ ...popperState, isOpen:false } }; //data is cleared
+      const { id } = action.payload;
+      return { ...state, [id]:{ ...state[id], isOpen:false } }; //data is cleared
     }
   }
 };
