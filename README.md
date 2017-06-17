@@ -21,9 +21,11 @@ const reducers = combineReducers({
 
 ## Usage
 
-Here's an example using [`material-ui/Dialog`](http://www.material-ui.com/#/components/dialog) as the decorated component
+Here's an example using [`material-ui/Dialog`](http://www.material-ui.com/#/components/dialog) as the integrating component
 
 ```javascript
+import reduxPopper from 'redux-popper'
+
 @reduxPopper('coolDialog')
 class CoolDialog extends Component {
     render() {        
@@ -31,9 +33,9 @@ class CoolDialog extends Component {
         const someData = {comparedTo:'a cucumber'}
         return (
             <div>
-                <Button onClick={()=> {assign(someData);open()}}>
+                <button onClick={()=> {assign(someData);open()}}>
                     Open Dialog
-                </Button>
+                </button>
 
                 <Dialog open={isOpen} onRequestClose={close} >
                     Cool as...{data.comparedTo}
