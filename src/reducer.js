@@ -25,5 +25,9 @@ export default (state = defaultState, action) => {
       const { id } = action.payload;
       return { ...state, [id]:{ ...state[id], isOpen:false } }; //data is cleared
     }
+
+    default: {
+      return state
+    }
   }
 };
