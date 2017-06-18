@@ -1,6 +1,6 @@
 {
   "name": "redux-popper",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "redux state management for popup components",
   "main": "lib/redux-popper.js",
   "scripts": {
